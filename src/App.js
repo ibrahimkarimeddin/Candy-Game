@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from 'react'
+import Login from './components/Login'
+import Game from "./Game"
 function App() {
+  const [islogin , setislogin ] = useState(false)
+  const [width , setwidth ] = useState(0)
+  console.log(width )
+  if(islogin){
+    return (
+      <div className='wraper'>
+        <Game width={width} /> 
+      </div>
+    )
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='wraper'>
+    <Login setislogin={setislogin} setwidth={setwidth}/> 
     </div>
-  );
-}
+  )
+} 
 
-export default App;
+export default App
